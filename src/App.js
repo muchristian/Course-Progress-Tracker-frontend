@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import DashLayout from "./Components/DashLayout";
+import Login from "./Components/Screen/Login";
+import Home from "./Components/Screen/home";
+import CourseDetail from "./Components/Screen/course/Detail";
+import PrivateRoute from "./PrivateRoute";
+import { connect } from "react-redux";
+import * as actions from "./store/action";
+import "./css/style.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    this.props.onAuthCheck();
+  }
+  render() {
+    const { isOpen, isLoggedIn } = this.props;
+    return (
+      <div class={`right-column-fixed ${isOpen ? "sidebar-main" : ""}`}>
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/home" component={Home} />
+          <Route path="/course-detail/:id" component={CourseDetail} />
+          <PrivateRoute path="/" isLoggedIn={isLoggedIn}>
+            <DashLayout />
+          </PrivateRoute>
+        </Switch>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    isOpen: state.SB.isOpen,
+    isLoggedIn: state.auth.isLoggedIn,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAuthCheck: () => dispatch(actions.authCheck()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
