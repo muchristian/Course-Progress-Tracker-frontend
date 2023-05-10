@@ -7,40 +7,40 @@ import Register from "./Register";
 
 class table extends Component {
   state = {
-    toggle: false
-  }
+    toggle: false,
+  };
   async componentDidMount() {
     await this.props.onGetFaculties();
   }
 
   togglehandler() {
-    this.setState({toggle: !this.state.toggle})
+    this.setState({ toggle: !this.state.toggle });
   }
 
   render() {
     const { data, onDeleteFaculty } = this.props;
-    const {toggle} = this.state;
-    console.log(data);
+    const { toggle } = this.state;
     return (
       <section class="hk-sec-wrapper border-0 shadow-none">
-        {toggle && <Register/>}
+        {toggle && <Register />}
         <div class="row">
           <div class="col-sm-8">
-          <div class="row">
-          <div class="col-md-10">
-        <h5 class="hk-sec-title">Faculty</h5>
-        {/* <p class="mb-40">
-          Add class <code>.table</code> in table tag.
-        </p> */}
-
-        </div>
-        </div>
+            <div class="row">
+              <div class="col-md-10">
+                <h5 class="hk-sec-title">Faculty</h5>
+              </div>
+            </div>
           </div>
           <div class="col-sm-4">
-            <button class="btn btn-secondary" onClick={() => this.togglehandler()}>Add Faculty</button>
+            <button
+              class="btn btn-secondary"
+              onClick={() => this.togglehandler()}
+            >
+              Add Faculty
+            </button>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-sm">
             <div class="table-wrap">
@@ -59,11 +59,6 @@ class table extends Component {
                         <tr key={item.id}>
                           <th scope="row">{item.id}</th>
                           <td>{item.faculty_name}</td>
-                          {/* <td>
-                            <span class="badge badge-danger">
-                              {item.role.name.toLowerCase()}
-                            </span>
-                          </td> */}
                           <td>
                             <EditBtn />
                             <DeleteBtn func={() => onDeleteFaculty(item.id)} />
@@ -73,59 +68,6 @@ class table extends Component {
                   </tbody>
                 </table>
               </div>
-              {/* <div class="row mt-16">
-                <div class="col-sm">
-                  <nav
-                    class="pagination-wrap justify-content-end"
-                    aria-label="Page navigation example"
-                  >
-                    <ul
-                      class="
-                            pagination
-                            custom-pagination
-                            pagination-rounded
-                            mb-0
-                          "
-                    >
-                      <li class="page-item">
-                        <a class="page-link" href="#">
-                          Previous
-                        </a>
-                      </li>
-                      <li class="page-item active">
-                        <a class="page-link" href="#">
-                          1
-                        </a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">
-                          2
-                        </a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">
-                          3
-                        </a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">
-                          ...
-                        </a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">
-                          15
-                        </a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">
-                          Next
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
