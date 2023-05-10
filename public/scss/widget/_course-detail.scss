@@ -1,0 +1,40 @@
+.course {
+  .jumbotron {
+    background-color: $dark;
+    border-color: $dark;
+    border-radius: 4px;
+    .row {
+      h1 {
+        color: $light;
+        font-weight: 700;
+      }
+      h6 {
+        color: $light;
+        span {
+          color: $accent;
+        }
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          margin-right: 24px;
+          margin-top: 16px;
+          font-size: 12px;
+          color: $light;
+          span {
+            color: $accent;
+          }
+        }
+      }
+    }
+  }
+  .chapter-section {
+    .chapter-head {
+      border-bottom: 1px solid $color1;
+    }
+    .list-group-item {
+      background-color: $primary;
+    }
+  }
+}

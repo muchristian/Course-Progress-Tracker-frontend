@@ -1,0 +1,124 @@
+/*Avatar*/
+.avatar {
+  font-size: 1rem;
+  position: relative;
+  display: inline-block;
+  width: 3.875rem;
+  height: 3.875rem;
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .avatar-text {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-transform: uppercase;
+    overflow: hidden;
+    background: #fff;
+    font-weight: 600;
+    color: $secondary2;
+    .initial-wrap {
+      display: table;
+      width: 100%;
+      height: 100%;
+      > span {
+        position: relative;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      background: rgba(188, 231, 199, 0.5);
+    }
+  }
+  .avatar-text.avatar-secondary-color {
+    color: $secondary2;
+    &:before {
+      background-color: rgba(50, 65, 72, 0.2) !important;
+    }
+  }
+}
+.avatar.avatar-xl {
+  font-size: 1.70833rem;
+  width: 5.125rem;
+  height: 5.125rem;
+}
+.avatar.avatar-lg {
+  font-size: 1.4rem;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+.avatar.avatar-md {
+  font-size: 0.95rem;
+  width: 3.25rem;
+  height: 3.25rem;
+}
+.avatar.avatar-sm {
+  font-size: 0.9rem;
+  width: 2.625rem;
+  height: 2.625rem;
+}
+.avatar.avatar-xs {
+  font-size: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+}
+.avatar-group {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  .avatar {
+    font-size: 0.9rem;
+    width: 2.625rem;
+    height: 2.625rem;
+    .avatar-img {
+      border: 2px solid #fff;
+    }
+    .avatar-text {
+      border: 2px solid #fff;
+    }
+  }
+}
+.avatar-group.avatar-group-overlapped {
+  .avatar {
+    margin-right: -13px;
+    &:hover {
+      z-index: 1;
+    }
+  }
+}
+.avatar-group.avatar-group-lg {
+  .avatar {
+    font-size: 0.95rem;
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}
+.avatar-group.avatar-group-lg.avatar-group-overlapped {
+  .avatar {
+    margin-right: -15px;
+  }
+}
+.avatar-group.avatar-group-sm {
+  .avatar {
+    font-size: 0.6rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+.avatar-group.avatar-group-sm.avatar-group-overlapped {
+  .avatar {
+    margin-right: -10px;
+  }
+}
